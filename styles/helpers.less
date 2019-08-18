@@ -1,0 +1,152 @@
+// media queries -> @media only screen and (min-width: 768px)
+@phone: ~"only screen and (min-width: 480px)";
+// @media @phone
+@tablet: ~"only screen and (min-width: 768px)";
+@desktop: ~"only screen and (min-width: 992px)";
+
+
+// elements positioning
+
+.center-text {
+    text-align: center;
+}
+
+.float-left {
+    float: left;
+}
+
+.float-right {
+    float: right;
+}
+
+.float-none {
+    float: none;
+}
+
+.center-no-float {
+    .float-none;
+    .center-text;
+}
+
+.no-center-floar {
+    .float-left;
+    text-align: initial;
+}
+
+
+.center-vertical {
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+// elements visibility
+
+
+.invisible {
+    display: none;
+}
+
+.inline-block {
+    display: inline-block;
+}
+
+.block {
+    display: block;
+}
+
+
+// elements sizes (background images)
+
+.absolute-one-hundred-size {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+
+.size(@width;@height) {
+    width: @width;
+    height: @height;
+}
+
+
+// lists
+
+.list-style-none {
+    list-style-type: none;
+}
+
+// frames
+
+.tab-frame {
+    color: @tab-frame;
+    border-width: 1px;
+    border-style: solid;
+}
+
+// floating elements
+
+.over-fix {
+    overflow: auto;
+}
+
+// clearfix - added to the containers containing floating elements
+
+.clearfix {
+    &:after {
+        content: "";
+        display: table;
+        clear: both;
+    }
+}
+
+// hiding elements (to not to delete them from the HTML structure)
+
+.hide {
+    opacity: 0;
+}
+
+.show {
+    opacity: 1;
+}
+
+// border radius
+
+.border-radius-single(@radius) {
+    border-radius: @radius;
+    -moz-border-radius: @radius;
+    -webkit-border-radius: @radius;
+}
+
+
+//  transition for hovers
+
+
+.variable-transition(@length) {
+    transition: all @length ease-in-out;
+}
+
+
+// opacity overlay on parallax
+
+.gray-overlay {
+    content: "";
+    z-index: 0;
+    .absolute-one-hundred-size;
+    background: none repeat 0 0 rgba(30, 30, 30, 0.5);
+}
+
+// button mixin
+
+.basic-button(@color;@background-color;@font-size;) {
+    color: @color;
+    background-color: @background-color;
+    text-decoration: none;
+    font-size: @font-size;
+    font-weight: 400;
+    line-height: 1;
+    text-transform: uppercase;
+}
